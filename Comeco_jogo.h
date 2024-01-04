@@ -15,9 +15,9 @@ class comeco_jogo
     Personagem usuario;
     public:
     comeco_jogo(Personagem jogador);
-    Goblin get_goblins_adversarios;
-    Mago get_magos_adversarios;
-    Elfo get_elfos_adversarios;
-    Personagem get_usuario;
+    Personagem get_usuario();
+    Goblin get_goblins_adversarios(short int num);
+    Mago get_magos_adversarios(short int num);
+    Elfo get_elfos_adversarios(short int num);
 
 };

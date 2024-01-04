@@ -23,3 +23,19 @@ comeco_jogo::comeco_jogo(Personagem jogador)
         magos_adversarios[i] = Mago();
     }
 };
+Personagem comeco_jogo::get_usuario()
+{
+    return usuario;
+}
+Goblin comeco_jogo::get_goblins_adversarios(short int num)
+{
+    return goblins_adversarios[num];
+}
+Elfo comeco_jogo::get_elfos_adversarios(short int num)
+{
+    return elfos_adversarios[num];
+}
+Mago comeco_jogo::get_magos_adversarios(short int num)
+{
+    return magos_adversarios[num];
+}
