@@ -41,6 +41,10 @@ int main()
     std::cout << "2.Nao" << std::endl;
     char jogo_salvo;
     std::cin >> jogo_salvo;
+    if(sizeof(jogo_salvo) > 0)
+    {
+        jogo_salvo = '2';
+    }
     if(jogo_salvo == '1')
     {
         
@@ -94,6 +98,7 @@ int main()
     }
     else
     {
+        
         goto JOGO_SALVO_GOTO;
     }
 }
