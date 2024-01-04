@@ -11,6 +11,8 @@ using namespace std;
     string nome_jogador;
     string classe;
 
+
+//define de qual classe e o personagem
 void define_classes(string nome_jogador, string classe)
 {
         Mago mago_jogador(nome_jogador);
@@ -28,7 +30,7 @@ void define_classes(string nome_jogador, string classe)
         {
             jogador = goblin_jogador;
         }
-        //delete &mago_jogador, &elfo_jogador, &goblin_jogador;
+        
 }
 
 
@@ -41,10 +43,12 @@ int main()
     std::cout << "2.Nao" << std::endl;
     char jogo_salvo;
     std::cin >> jogo_salvo;
+    //verifica se o usuario digitou multiplos caracteres
     if(sizeof(jogo_salvo) > 0)
     {
         jogo_salvo = '2';
     }
+    //abre arquivo de save e segue com o jogo
     if(jogo_salvo == '1')
     {
         
@@ -65,6 +69,7 @@ int main()
        define_classes(nome_jogador,classe);
        std::cout << jogador.get_Nome() << endl  << jogador.get_Classe() << std::endl;
     }
+    //comeca jogo novo e segue
     else if(jogo_salvo == '2')
     {
         std::cout << "Digite o seu nome" << std::endl;
@@ -96,6 +101,7 @@ int main()
         
 
     }
+    //verifica se o usuario digitou algo imcompatives com as opcoes
     else
     {
         

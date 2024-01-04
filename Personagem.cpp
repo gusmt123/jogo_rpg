@@ -3,7 +3,7 @@
 #include <iostream>
 
 using namespace std;
-
+//getters
 short int Personagem::get_Ataque()
 {
     return ataque;
@@ -24,6 +24,7 @@ std::string Personagem::get_Nome()
 {
     return nome_jogador;
 }
+//altera o hp
 void Personagem::muda_Hp(int dif, bool ganha)
 {
     if(ganha == true)
@@ -35,6 +36,7 @@ void Personagem::muda_Hp(int dif, bool ganha)
         hp = hp - dif;
     }
 }
+//altera a defesa
 void Personagem::muda_Defesa(int dif, bool ganha)
 {
     if(ganha == true)
@@ -46,6 +48,7 @@ void Personagem::muda_Defesa(int dif, bool ganha)
         defesa = defesa - dif;
     }    
 }
+//altera o ataque
 void Personagem::muda_Ataque(int dif, bool ganha)
 {
     if(ganha == true)
@@ -57,11 +60,13 @@ void Personagem::muda_Ataque(int dif, bool ganha)
         ataque = ataque - dif;
     } 
 }
+//construtor com parametros
 Personagem::Personagem(string nome_parametro, string classe_parametro)
 {
     nome_jogador = nome_parametro;
     classe_personagem = classe_parametro;
 }
+//construtor sem parametros
 Personagem::Personagem()
 {
 
