@@ -1,6 +1,9 @@
 #include "Personagem.h"
 #include <string>
 #include <iostream>
+#include "Elfo.h"
+#include "Goblin.h"
+#include "Mago.h"
 
 using namespace std;
 //getters
@@ -66,8 +69,7 @@ Personagem::Personagem(string nome_parametro, string classe_parametro)
     nome_jogador = nome_parametro;
     classe_personagem = classe_parametro;
 }
-//construtor sem parametros
 Personagem::Personagem()
 {
-
-};
+    
+}

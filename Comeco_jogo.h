@@ -1,16 +1,23 @@
 #include "Personagem.h"
+#include "Goblin.h"
+#include "Mago.h"
+#include "Elfo.h"
 
+
+//cria os adversarios no jogo
 class comeco_jogo
 {
 
     private:
-    short int hp_goblins_adversarios[5];
-    short int hp_magos_adversarios[3];
-    short int hp_elfos_adversarios[8];
+    Goblin goblins_adversarios[5];
+    Mago magos_adversarios[3];
+    Elfo elfos_adversarios[8];
+    Personagem usuario;
     public:
     comeco_jogo(Personagem jogador);
-    short int get_hp_goblins_adversarios[5];
-    short int get_hp_magos_adversarios[3];
-    short int hp_elfos_adversarios[8];
-    
+    Goblin get_goblins_adversarios;
+    Mago get_magos_adversarios;
+    Elfo get_elfos_adversarios;
+    Personagem get_usuario;
+
 };

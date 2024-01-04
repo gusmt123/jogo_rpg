@@ -4,6 +4,8 @@
 #include "Mago.h"
 #include "Elfo.h"
 #include "Goblin.h"
+#include "stdio.h"
+#include "string.h"
 
 using namespace std;
 
@@ -44,7 +46,7 @@ int main()
     char jogo_salvo;
     std::cin >> jogo_salvo;
     //verifica se o usuario digitou multiplos caracteres
-    if(sizeof(jogo_salvo) > 0)
+    if(jogo_salvo != '1' and jogo_salvo != '2')
     {
         jogo_salvo = '2';
     }

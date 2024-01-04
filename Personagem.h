@@ -16,7 +16,7 @@ class Personagem
         short int ataque;
         short int defesa;
     public:
-        Personagem();
+        Personagem();    
         Personagem(std::string nome_parametro, std::string classe_parametro);
         short int get_Hp();
         short int get_Ataque();
@@ -29,7 +29,7 @@ class Personagem
         void set_Defesa(int Defesa_parametro);
         string get_Nome();
         string get_Classe();
-
+    
 };
 
 #endif
