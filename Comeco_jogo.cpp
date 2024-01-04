@@ -23,6 +23,7 @@ comeco_jogo::comeco_jogo(Personagem jogador)
         magos_adversarios[i] = Mago();
     }
 };
+//getters
 Personagem comeco_jogo::get_usuario()
 {
     return usuario;
