@@ -7,32 +7,34 @@
 
 using namespace std;
 
-void define_classes(string *nome_jogador, string classe, Personagem *jogador)
+    Personagem jogador;
+    string nome_jogador;
+    string classe;
+
+void define_classes(string nome_jogador, string classe)
 {
-        Mago mago_jogador(*nome_jogador);
-        Elfo elfo_jogador(*nome_jogador);
-        Goblin goblin_jogador(*nome_jogador);
+        Mago mago_jogador(nome_jogador);
+        Elfo elfo_jogador(nome_jogador);
+        Goblin goblin_jogador(nome_jogador);
         if(classe == "Mago")
         {
-            *jogador = mago_jogador;
+            jogador = mago_jogador;
         }
         else if(classe == "Elfo")
         {
-            *jogador = elfo_jogador;
+            jogador = elfo_jogador;
         }
         else if(classe == "Goblin")
         {
-            *jogador = goblin_jogador;
+            jogador = goblin_jogador;
         }
-        delete &mago_jogador, &elfo_jogador, &goblin_jogador;
+        //delete &mago_jogador, &elfo_jogador, &goblin_jogador;
 }
 
 
 int main()
 {
-    Personagem *jogador;
-    string *nome_jogador;
-    string classe;
+
     std::cout << "Quando voce chegar a 0 de vida você perde o jogo" << std::endl;
     JOGO_SALVO_GOTO: std::cout << "Voce ja salvou o jogo alguma vez? "<< std::endl;
     std::cout << "1.Sim" << std::endl;
@@ -48,7 +50,7 @@ int main()
        {
             if(i == 0)
             {
-                std::getline(Arquivo, *nome_jogador);
+                std::getline(Arquivo, nome_jogador);
             }
             else if(i == 1)
             {
@@ -56,13 +58,13 @@ int main()
             } 
        }
        delete &Arquivo;
-       define_classes(nome_jogador,classe, jogador);
-       std::cout << jogador->get_Nome() << endl  << jogador->get_Classe() << std::endl;
+       define_classes(nome_jogador,classe);
+       std::cout << jogador.get_Nome() << endl  << jogador.get_Classe() << std::endl;
     }
     else if(jogo_salvo == '2')
     {
         std::cout << "Digite o seu nome" << std::endl;
-        std::cin >> *nome_jogador;
+        std::cin >> nome_jogador;
         ESCOLHER_PERSONAGEM: std::cout << "Escolha uma classe de personagem:" << std::endl;
         std::cout <<  "Mago" << std::endl;
         std::cout <<  "Elfo" << std::endl;
@@ -84,8 +86,8 @@ int main()
             Arquivo << nome_jogador << endl << classe << endl;
             delete &Arquivo;
         }
-        define_classes(nome_jogador,classe, jogador);
-        std::cout << jogador->get_Nome() << std::endl << jogador->get_Classe() << std::endl;
+        define_classes(nome_jogador,classe);
+        std::cout << jogador.get_Nome() << std::endl << jogador.get_Classe() << std::endl;
        
         
 
