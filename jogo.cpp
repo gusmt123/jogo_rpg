@@ -90,6 +90,7 @@ int main()
         std::cout << "2.Nao" << std::endl;  
         int salvar_dados;
         std::cin >> salvar_dados;
+        //Salva dados
         if(salvar_dados == 1)
         {
             ofstream Arquivo;
@@ -97,6 +98,7 @@ int main()
             Arquivo << nome_jogador << endl << classe << endl;
             delete &Arquivo;
         }
+        delete &salvar_dados;
         define_classes(nome_jogador,classe);
         std::cout << jogador.get_Nome() << std::endl << jogador.get_Classe() << std::endl;
        
@@ -106,7 +108,6 @@ int main()
     //verifica se o usuario digitou algo imcompatives com as opcoes
     else
     {
-        
         goto JOGO_SALVO_GOTO;
     }
 }
