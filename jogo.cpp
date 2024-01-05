@@ -1,11 +1,9 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "Mago.h"
-#include "Elfo.h"
-#include "Goblin.h"
 #include "stdio.h"
 #include "string.h"
+#include "Comeco_jogo.h"
 
 using namespace std;
 
@@ -35,7 +33,11 @@ void define_classes(string nome_jogador, string classe)
         }
         
 }
-
+void inicia_jogo()
+{
+    comeco_jogo inicio = comeco_jogo(jogador);
+    inicio.inicia_jogo();
+}
 //inicio do programa
 int main()
 {
@@ -70,7 +72,7 @@ int main()
        }
        delete &Arquivo;
        define_classes(nome_jogador,classe);
-       std::cout << jogador.get_Nome() << endl  << jogador.get_Classe() << std::endl;
+       inicia_jogo();
     }
     //comeca jogo novo e segue
     else if(jogo_salvo == '2')
@@ -101,7 +103,7 @@ int main()
         }
         delete &salvar_dados;
         define_classes(nome_jogador,classe);
-        std::cout << jogador.get_Nome() << std::endl << jogador.get_Classe() << std::endl;
+        inicia_jogo();
        
         
 

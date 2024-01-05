@@ -19,5 +19,5 @@ class comeco_jogo
     Goblin get_goblins_adversarios(short int num);
     Mago get_magos_adversarios(short int num);
     Elfo get_elfos_adversarios(short int num);
-
+    void inicia_jogo();
 };

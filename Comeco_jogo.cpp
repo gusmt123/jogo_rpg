@@ -49,3 +49,31 @@ Mago comeco_jogo::get_magos_adversarios(short int num)
 {
     return magos_adversarios[num];
 }
+//inicia o jogo
+void comeco_jogo::inicia_jogo()
+{
+    std::cout << "Bem vindo ao jogo: " + usuario.get_Nome() + "voce e um: " + usuario.get_Classe() << std::endl;
+    std::cout << "Voce esta enfentando uma serie de criaturas um total de 3 Magos, 8 elfos e 5 goblins " << std::endl;
+    std::cout << "Deseja entrar em combate com qual tipo de criatura?" << std::endl;
+    std::cout << "1.Goblin" << std::endl;
+    std::cout << "2.Elfo" << std::endl;
+    std::cout << "3.Mago" << std::endl;
+    char classe_atacada;
+    std::cin >> classe_atacada;
+    if(classe_atacada == '1')
+    {
+        std::cout << "Existem 5 Goblins te atacando digite um numero de 1 a 5 para dizer qual deles voce quer atacar" << std::endl;
+    }
+    else if(classe_atacada == '2')
+    {
+        std::cout << "Existem 8 Elfos te atacando digite um numero de 1 a 8 para dizer qual elfo voce quer atacar" << std::endl;
+    }
+    else if(classe_atacada == '3')
+    {
+        std::cout << "Existem 3 Magos te atacando digite um numero de um a 3 para dizer mago voce esta atacando";
+    }
+    else
+    {
+
+    }
+}
