@@ -27,8 +27,21 @@ std::string Personagem::get_Nome()
 {
     return nome_jogador;
 }
+//setters
+void Personagem::set_Hp(short int Hp_parametro)
+{
+    hp = Hp_parametro;
+}
+void Personagem::set_Ataque(short int Ataque_parametro)
+{
+    ataque = Ataque_parametro;
+}
+void Personagem::set_Defesa(short int Defesa_parametro)
+{
+    defesa = Defesa_parametro;
+}
 //altera o hp
-void Personagem::muda_Hp(int dif, bool ganha)
+void Personagem::muda_Hp(short int dif, bool ganha)
 {
     if(ganha == true)
     {
@@ -40,7 +53,7 @@ void Personagem::muda_Hp(int dif, bool ganha)
     }
 }
 //altera a defesa
-void Personagem::muda_Defesa(int dif, bool ganha)
+void Personagem::muda_Defesa(short int dif, bool ganha)
 {
     if(ganha == true)
     {
@@ -52,7 +65,7 @@ void Personagem::muda_Defesa(int dif, bool ganha)
     }    
 }
 //altera o ataque
-void Personagem::muda_Ataque(int dif, bool ganha)
+void Personagem::muda_Ataque(short int dif, bool ganha)
 {
     if(ganha == true)
     {

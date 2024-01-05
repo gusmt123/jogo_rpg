@@ -21,12 +21,12 @@ class Personagem
         short int get_Hp();
         short int get_Ataque();
         short int get_Defesa();
-        void muda_Hp(int dif, bool ganha);
-        void muda_Ataque(int dif, bool ganha);
-        void muda_Defesa(int di, bool ganha);
-        void set_Hp(int Hp_parametro);
-        void set_Ataque(int Ataque_parametro);
-        void set_Defesa(int Defesa_parametro);
+        void muda_Hp(short int dif, bool ganha);
+        void muda_Ataque(short int dif, bool ganha);
+        void muda_Defesa(short int dif, bool ganha);
+        void set_Hp(short int Hp_parametro);
+        void set_Ataque(short int Ataque_parametro);
+        void set_Defesa(short int Defesa_parametro);
         string get_Nome();
         string get_Classe();
     
