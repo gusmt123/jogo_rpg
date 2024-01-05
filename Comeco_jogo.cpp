@@ -7,6 +7,7 @@ using namespace std;
 
 comeco_jogo::comeco_jogo(Personagem jogador)
 {
+    classe_atacada = '0';
     //cria o jogador
     usuario = jogador;
     //cria os adversarios
@@ -52,51 +53,37 @@ Mago comeco_jogo::get_magos_adversarios(short int num)
 //inicia o jogo
 void comeco_jogo::inicia_jogo()
 {
-    std::cout << "Bem vindo ao jogo: " + usuario.get_Nome() + "voce e um: " + usuario.get_Classe() << std::endl;
-    std::cout << "Voce esta enfentando uma serie de criaturas um total de 3 Magos, 8 elfos e 5 goblins " << std::endl;
-    std::cout << "Deseja entrar em combate com qual tipo de criatura?" << std::endl;
-    std::cout << "1.Goblin" << std::endl;
-    std::cout << "2.Elfo" << std::endl;
-    std::cout << "3.Mago" << std::endl;
-    char classe_atacada;
-    
-    //pega apenas o primeiro caracter do input do usuario
-    std::cin.get(classe_atacada);
-    
-    
-    //segue com o jogo explicando sobre os adversarios
-    if(classe_atacada == '1')
+    //repete ate o usuario colocar uma repsosta valida
+    while(classe_atacada!= '1' && classe_atacada!= '2' && classe_atacada != '3')
     {
-        std::cout << "Existem 5 Goblins te atacando digite um numero de 1 a 5 para dizer qual deles voce quer atacar" << std::endl;
-    }
-    else if(classe_atacada == '2')
-    {
-        std::cout << "Existem 8 Elfos te atacando digite um numero de 1 a 8 para dizer qual elfo voce quer atacar" << std::endl;
-    }
-    else if(classe_atacada == '3')
-    {
-        std::cout << "Existem 3 Magos te atacando digite um numero de um a 3 para dizer mago voce esta atacando" << std::endl;
-    }
-    
-
-    //verifica se o usuario digiou um comando invalido
-    else
-    {
-        char opcao_escolhida = retorna_opcao_valida();
-        while(opcao_escolhida != '1' || opcao_escolhida !='2'|| opcao_escolhida != '3')
+        std::cout << "Bem vindo ao jogo: " + usuario.get_Nome() + "voce e um: " + usuario.get_Classe() << std::endl;
+        std::cout << "Voce esta enfentando uma serie de criaturas um total de 3 Magos, 8 elfos e 5 goblins " << std::endl;
+        std::cout << "Deseja entrar em combate com qual tipo de criatura?" << std::endl;
+        std::cout << "1.Goblin" << std::endl;
+        std::cout << "2.Elfo" << std::endl;
+        std::cout << "3.Mago" << std::endl;
+        
+        
+        //pega apenas o primeiro caracter do input do usuario
+        std::cin.get(classe_atacada);
+        
+        //segue com o jogo explicando sobre os adversarios
+        if(classe_atacada == '1')
         {
-            classe_atacada = retorna_opcao_valida();
+            std::cout << "Existem 5 Goblins te atacando digite um numero de 1 a 5 para dizer qual deles voce quer atacar" << std::endl;
         }
-    }
+        else if(classe_atacada == '2')
+        {
+            std::cout << "Existem 8 Elfos te atacando digite um numero de 1 a 8 para dizer qual elfo voce quer atacar" << std::endl;
+        }
+        else if(classe_atacada == '3')
+        {
+            std::cout << "Existem 3 Magos te atacando digite um numero de um a 3 para dizer mago voce esta atacando" << std::endl;
+        }
+    }    
+
+
     
     
 
-}
-//input de dado valido
-char comeco_jogo::retorna_opcao_valida()
-{
-    std::cout << "Digite uma opcao valida" << std::endl;
-    char opcao;
-    std::cin.get(opcao);
-    return opcao;
 }

@@ -13,6 +13,7 @@ class comeco_jogo
     Mago magos_adversarios[3];
     Elfo elfos_adversarios[8];
     Personagem usuario;
+    char classe_atacada;
     public:
     comeco_jogo(Personagem jogador);
     Personagem get_usuario();
