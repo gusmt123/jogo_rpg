@@ -61,7 +61,8 @@ void comeco_jogo::inicia_jogo()
     char classe_atacada;
     
     //pega apenas o primeiro caracter do input do usuario
-    std::cin >> classe_atacada;
+    std::cin.get(classe_atacada);
+    
     
 
     //segue com o jogo explicando sobre os adversarios
@@ -82,5 +83,7 @@ void comeco_jogo::inicia_jogo()
     {
         inicia_jogo();
     }
+    
+    
 
 }

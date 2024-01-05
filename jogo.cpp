@@ -33,11 +33,14 @@ void define_classes(string nome_jogador, string classe)
         }
         
 }
-void inicia_jogo()
+
+//inicializa o jogo
+void inicializa_jogo()
 {
     comeco_jogo inicio = comeco_jogo(jogador);
     inicio.inicia_jogo();
 }
+
 //inicio do programa
 int main()
 {
@@ -72,7 +75,7 @@ int main()
        }
        delete &Arquivo;
        define_classes(nome_jogador,classe);
-       inicia_jogo();
+       inicializa_jogo();
        
     }
     //comeca jogo novo e segue
@@ -104,7 +107,7 @@ int main()
         }
         delete &salvar_dados;
         define_classes(nome_jogador,classe);
-        inicia_jogo();
+        inicializa_jogo();
         
         
 
