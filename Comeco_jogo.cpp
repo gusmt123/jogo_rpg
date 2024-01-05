@@ -64,7 +64,6 @@ void comeco_jogo::inicia_jogo()
     std::cin.get(classe_atacada);
     
     
-
     //segue com o jogo explicando sobre os adversarios
     if(classe_atacada == '1')
     {
@@ -78,12 +77,26 @@ void comeco_jogo::inicia_jogo()
     {
         std::cout << "Existem 3 Magos te atacando digite um numero de um a 3 para dizer mago voce esta atacando" << std::endl;
     }
+    
+
     //verifica se o usuario digiou um comando invalido
     else
     {
-        inicia_jogo();
+        char opcao_escolhida = retorna_opcao_valida();
+        while(opcao_escolhida != '1' || opcao_escolhida !='2'|| opcao_escolhida != '3')
+        {
+            classe_atacada = retorna_opcao_valida();
+        }
     }
     
     
 
+}
+//input de dado valido
+char comeco_jogo::retorna_opcao_valida()
+{
+    std::cout << "Digite uma opcao valida" << std::endl;
+    char opcao;
+    std::cin.get(opcao);
+    return opcao;
 }
