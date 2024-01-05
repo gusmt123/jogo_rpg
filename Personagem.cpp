@@ -85,5 +85,6 @@ Personagem::Personagem(string nome_parametro, string classe_parametro)
 //construtor sem parametros
 Personagem::Personagem()
 {
-
+    
+    
 }

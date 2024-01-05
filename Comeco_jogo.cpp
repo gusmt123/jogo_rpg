@@ -71,19 +71,24 @@ void comeco_jogo::inicia_jogo()
         
         //pega apenas o primeiro caracter do input do usuario
         std::cin.get(classe_atacada);
-        
+        char num_adversario;
         //segue com o jogo explicando sobre os adversarios
         if(classe_atacada == '1')
         {
             std::cout << "Existem 5 Goblins te atacando digite um numero de 1 a 5 para dizer qual deles voce quer atacar" << std::endl;
+            std::cin.get(num_adversario);
+            goblins_adversarios[num_adversario].muda_Hp((short)usuario.get_Ataque() - usuario.get_Defesa(), false);
+            std::cout << "Agora o Goblin : " << num_adversario << " tem o hp de " << to_string(goblins_adversarios[num_adversario].get_Hp()) << std::endl;
         }
         else if(classe_atacada == '2')
         {
             std::cout << "Existem 8 Elfos te atacando digite um numero de 1 a 8 para dizer qual elfo voce quer atacar" << std::endl;
+            std::cin.get(num_adversario);
         }
         else if(classe_atacada == '3')
         {
             std::cout << "Existem 3 Magos te atacando digite um numero de um a 3 para dizer mago voce esta atacando" << std::endl;
+            std::cin.get(num_adversario);
         }
     }    
 
