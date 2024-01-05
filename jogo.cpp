@@ -73,6 +73,7 @@ int main()
        delete &Arquivo;
        define_classes(nome_jogador,classe);
        inicia_jogo();
+       return 0;
     }
     //comeca jogo novo e segue
     else if(jogo_salvo == '2')

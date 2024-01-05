@@ -59,12 +59,14 @@ void comeco_jogo::inicia_jogo()
     std::cout << "2.Elfo" << std::endl;
     std::cout << "3.Mago" << std::endl;
     char classe_atacada;
-    std::cin >> classe_atacada;
-    if(classe_atacada != 1 and classe_atacada != '2' and classe_atacada != '3')
+    std::cin.get(classe_atacada);
+    //verifica se o usuario digitou um comando invalido
+    if(classe_atacada != '1' and classe_atacada != '2' and classe_atacada != '3')
     {
-        
+ 
     }
-    if(classe_atacada == '1')
+    //segue com o jogo explicando sobre os adversarios
+    else if(classe_atacada == '1')
     {
         std::cout << "Existem 5 Goblins te atacando digite um numero de 1 a 5 para dizer qual deles voce quer atacar" << std::endl;
     }
@@ -74,10 +76,7 @@ void comeco_jogo::inicia_jogo()
     }
     else if(classe_atacada == '3')
     {
-        std::cout << "Existem 3 Magos te atacando digite um numero de um a 3 para dizer mago voce esta atacando";
+        std::cout << "Existem 3 Magos te atacando digite um numero de um a 3 para dizer mago voce esta atacando" << std::endl;
     }
-    else
-    {
-        
-    }
+
 }
