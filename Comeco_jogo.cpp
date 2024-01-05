@@ -56,6 +56,7 @@ void comeco_jogo::inicia_jogo()
     //repete ate o usuario colocar uma repsosta valida
     while(classe_atacada!= '1' && classe_atacada!= '2' && classe_atacada != '3')
     {
+        system("cls");
         std::cout << "Bem vindo ao jogo: " + usuario.get_Nome() + "voce e um: " + usuario.get_Classe() << std::endl;
         std::cout << "Voce esta enfentando uma serie de criaturas um total de 3 Magos, 8 elfos e 5 goblins " << std::endl;
         std::cout << "Deseja entrar em combate com qual tipo de criatura?" << std::endl;
