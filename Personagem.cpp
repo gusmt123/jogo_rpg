@@ -69,7 +69,8 @@ Personagem::Personagem(string nome_parametro, string classe_parametro)
     nome_jogador = nome_parametro;
     classe_personagem = classe_parametro;
 }
+//construtor sem parametros
 Personagem::Personagem()
 {
-    
+
 }

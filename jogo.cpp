@@ -9,9 +9,10 @@
 
 using namespace std;
 
-    Personagem jogador;
-    string nome_jogador;
-    string classe;
+//variaveis usadas tanto pela funcao main quanto pela funcao define_classes
+Personagem jogador;
+string nome_jogador;
+string classe;
 
 
 //define de qual classe e o personagem
@@ -35,7 +36,7 @@ void define_classes(string nome_jogador, string classe)
         
 }
 
-
+//inicio do programa
 int main()
 {
 
