@@ -2,7 +2,7 @@
 #include "Goblin.h"
 #include "Mago.h"
 #include "Elfo.h"
-
+#include <cctype>
 
 //cria os adversarios no jogo
 class comeco_jogo
