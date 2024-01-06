@@ -82,16 +82,13 @@ void comeco_jogo::inicia_jogo()
         {
            
             //fez com que o sistema so aceite respostas validas
-            while(num_adversario < 1 || num_adversario > 5)
+            while(num_adversario < 1 || num_adversario > 5 || !isdigit(num_adversario))
             {
-                //limpa o terminal
-                system("cls");
+                //limpa o console
+                system("cls");             
+                //o jogadorpode escolher qual adversario atacar
                 std::cout << "Existem 5 Goblins te atacando digite um numero de 1 a 5 para dizer qual deles voce quer atacar" << std::endl;
                 std::cin >> num_adversario;
-                if(!isdigit(num_adversario))
-                {
-                    num_adversario = 0;
-                }
             }
             //ataca o adversario
             goblins_adversarios[num_adversario].muda_Hp(usuario.get_Ataque() - goblins_adversarios[num_adversario].get_Defesa(), false);
@@ -101,17 +98,13 @@ void comeco_jogo::inicia_jogo()
         {
            
             //fez com que o sistema so aceite respostas validas
-            while(num_adversario < 1 || num_adversario > 8)
+            while(num_adversario < 1 || num_adversario > 8 || !isdigit(num_adversario))  
             {
-            //limpa o terminal
-            system("cls");
+            //limpa o console
+            system("cls"); 
             //o jogadorpode escolher qual adversario atacar
             std::cout << "Existem 8 Elfos te atacando digite um numero de 1 a 8 para dizer qual elfo voce quer atacar" << std::endl;
             std::cin >> num_adversario;
-            if(!isdigit(num_adversario))
-            {
-                    num_adversario = 0;
-            }
             }
             //ataca o adversario
             elfos_adversarios[num_adversario].muda_Hp((short)usuario.get_Ataque() - elfos_adversarios[num_adversario].get_Defesa(), false);
@@ -124,17 +117,13 @@ void comeco_jogo::inicia_jogo()
             
             
             //fez com que o sistema so aceite respostas validas
-            while(num_adversario < 1 || num_adversario > 3)
+            while(num_adversario < 1 || num_adversario > 3 || !isdigit(num_adversario))
             {
-            //limpa o terminal
-            system("cls");
+            //limpa o console
+            system("cls");     
             //o jogadorpode escolher qual adversario atacar
             std::cout << "Existem 3 Magos te atacando digite um numero de um a 3 para dizer mago voce esta atacando" << std::endl;
             std::cin >> num_adversario;
-            if(!isdigit(num_adversario))
-            {
-                    num_adversario = 0;
-            }
             }
 
             //ataca o adversario
