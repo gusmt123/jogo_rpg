@@ -1,0 +1,12 @@
+{
+    
+    "version": "0.2.0",
+    "configurations": [
+        "name": "gdb lauch",
+        "type": "cppdbg",
+        "request": "luach",
+        "program:" : "a.out",
+        "args": [],
+        "stopAtEntry": true
+    ];
+}
