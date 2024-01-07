@@ -26,7 +26,7 @@ comeco_jogo::comeco_jogo(Personagem jogador)
     {
         jogador.set_Hp(21);
         jogador.set_Defesa(3);
-        jogador.set_Ataque(1);
+        jogador.set_Ataque(22);
     }
     //cria o jogador
     usuario = jogador;
@@ -34,9 +34,9 @@ comeco_jogo::comeco_jogo(Personagem jogador)
     for(int i = 0;i < 5;i++)
     {
         goblins_adversarios[i] = Goblin();
-        goblins_adversarios[i].set_Ataque((short)4);
-        goblins_adversarios[i].set_Hp((short)7);
-        goblins_adversarios[i].set_Defesa((short)2);
+        goblins_adversarios[i].set_Ataque((short)1);
+        goblins_adversarios[i].set_Hp((short)1);
+        goblins_adversarios[i].set_Defesa((short)1);
     }
     for(int i = 0; i<8 ; i++)
     {
@@ -97,25 +97,33 @@ void comeco_jogo::inicia_jogo()
         //segue com o jogo explicando sobre os adversarios
         if(classe_atacada == '1')
         {
-
-            //fez com que o sistema so aceite respostas validas
-            while(num_adversario != '1' && num_adversario != '2'  && num_adversario != '3' && num_adversario != '4' && num_adversario != '5')
-            {             
-                //limpa o terminal
-                system("cls");
-                //o jogadorpode escolher qual adversario atacar
-                std::cout << "Existem 5 Goblins te atacando digite um numero de 1 a 5 para dizer qual deles voce quer atacar" << std::endl;
-                std::cin.get(num_adversario);
+            //permite o usuario atacar varias vezes o adversario
+            while(verifica_se_o_jogador_venceu_todos_adversarios(classe_atacada) == false)
+            {
                 
+                //fez com que o sistema so aceite respostas validas
+                while(num_adversario != '1' && num_adversario != '2'  && num_adversario != '3' && num_adversario != '4' && num_adversario != '5' || verifica_se_o_jogador_venceu_todos_adversarios(classe_atacada) == false)
+                {             
+                    //limpa o terminal
+                    system("cls"); 
+                    //o jogadorpode escolher qual adversario atacar
+                    std::cout << "Existem 5 Goblins te atacando digite um numero de 1 a 5 para dizer qual deles voce quer atacar" << std::endl;
+                    std::cin.get(num_adversario);
+                    if(num_adversario == '1' || num_adversario == '2'  || num_adversario == '3' || num_adversario == '4' || num_adversario == '5')
+                    {
+                        //cria variavel que converte char em int
+                        int posicao_adversario = num_adversario - '0';
+                        //anuncia o hp
+                        std::cout << "o hp do goblin " << num_adversario << " e "  << goblins_adversarios[posicao_adversario].get_Hp();
+                        //ataca o adversario
+                        goblins_adversarios[posicao_adversario].muda_Hp(usuario.get_Ataque() - goblins_adversarios[posicao_adversario].get_Defesa(), false);
+                        std::cout << "Agora o Goblin : " << num_adversario << " tem o hp de " << goblins_adversarios[posicao_adversario].get_Hp() << std::endl;
+                    }
+                    system("pause") ;                  
+                }
+
             }
-            //cria variavel que converte char em int
-            int posicao_adversario = num_adversario - '0';
-            //anuncia o hp
-            std::cout << "o hp do goblin " << num_adversario << " e "  << goblins_adversarios[posicao_adversario].get_Hp();
-            //ataca o adversario
-            goblins_adversarios[posicao_adversario].muda_Hp(usuario.get_Ataque() - goblins_adversarios[posicao_adversario].get_Defesa(), false);
-            std::cout << "Agora o Goblin : " << num_adversario << " tem o hp de " << goblins_adversarios[posicao_adversario].get_Hp() << std::endl;
-            system("pause");
+           
         }
         else if(classe_atacada == '2')
         {
@@ -143,6 +151,7 @@ void comeco_jogo::inicia_jogo()
         {
             
             
+            //repete ate todos os adversarios dessa classe estiverem mortos
             
             //fez com que o sistema so aceite respostas validas
             while(num_adversario != '1' && num_adversario != '2'  && num_adversario != '3')
@@ -170,3 +179,39 @@ void comeco_jogo::inicia_jogo()
     
 
 }
+bool comeco_jogo::verifica_se_o_jogador_venceu_todos_adversarios(char classe)
+{
+    switch (classe)
+    {
+        case '1':
+            for(int i = 0; i < 5;i++)
+            {
+                if(goblins_adversarios[i].get_Hp() > 0)
+                {
+                    return false;
+                }
+                return true;
+            }
+        break;
+        case '2':
+            for(int i = 0; i < 8;i++)
+            {
+                if(elfos_adversarios[i].get_Hp() > 0)
+                {
+                    return false;
+                }
+                return true;
+            }
+        break;
+        case '3':
+            for(int i = 0; i < 3;i++)
+            {
+                if(magos_adversarios[i].get_Hp() > 0)
+                {
+                    return false;
+                }
+                return true;
+            }
+        break;
+    }
+};
