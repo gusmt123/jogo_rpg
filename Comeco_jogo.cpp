@@ -10,10 +10,24 @@ comeco_jogo::comeco_jogo(Personagem jogador)
 {
 
     //executa os setters do jogador
-    jogador.set_Hp(20);
-    jogador.set_Defesa(2);
-    jogador.set_Ataque(4);
-
+    if(jogador.get_Classe() == "Goblin")
+    {
+        jogador.set_Hp(20);
+        jogador.set_Defesa(2);
+        jogador.set_Ataque(4);
+    }
+    else if(jogador.get_Classe() == "Elfo")
+    {
+        jogador.set_Hp(18);
+        jogador.set_Defesa(2);
+        jogador.set_Ataque(2);        
+    }
+    else
+    {
+        jogador.set_Hp(21);
+        jogador.set_Defesa(3);
+        jogador.set_Ataque(1);
+    }
     //cria o jogador
     usuario = jogador;
     //cria os adversarios
@@ -117,7 +131,7 @@ void comeco_jogo::inicia_jogo()
             //cria variavel que converte char em int
             int posicao_adversario = num_adversario - '0';
             //ataca o adversario
-            elfos_adversarios[posicao_adversario].muda_Hp((short)usuario.get_Ataque() - elfos_adversarios[posicao_adversario].get_Defesa(), false);
+            elfos_adversarios[posicao_adversario].muda_Hp(usuario.get_Ataque() - elfos_adversarios[posicao_adversario].get_Defesa(), false);
             std::cout << "Agora o Elfo : " << num_adversario << " tem o hp de " << to_string(elfos_adversarios[posicao_adversario].get_Hp()) << std::endl;
             system("pause");
         }
@@ -139,7 +153,7 @@ void comeco_jogo::inicia_jogo()
             //cria variavel que converte char em int
             int posicao_adversario = num_adversario - '0';
             //ataca o adversario
-            magos_adversarios[posicao_adversario].muda_Hp((short)usuario.get_Ataque() - magos_adversarios[posicao_adversario].get_Defesa(), false);
+            magos_adversarios[posicao_adversario].muda_Hp(usuario.get_Ataque() - magos_adversarios[posicao_adversario].get_Defesa(), false);
             std::cout << "Agora o Mago : " << num_adversario << " tem o hp de " << to_string(magos_adversarios[posicao_adversario].get_Hp()) << std::endl;
             system("pause");
         }
