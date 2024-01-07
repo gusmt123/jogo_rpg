@@ -44,7 +44,7 @@ void inicializa_jogo()
 //inicio do programa
 int main()
 {
-    
+    std::cout << "Hello World";
     std::cout << "Quando voce chegar a 0 de vida você perde o jogo" << std::endl;
     JOGO_SALVO_GOTO: std::cout << "Voce ja salvou o jogo alguma vez? "<< std::endl;
     std::cout << "1.Sim" << std::endl;

@@ -13,7 +13,6 @@ class comeco_jogo
     Mago magos_adversarios[3];
     Elfo elfos_adversarios[8];
     Personagem usuario;
-    char classe_atacada;
     public:
     comeco_jogo(Personagem jogador);
     Personagem get_usuario();
@@ -21,5 +20,4 @@ class comeco_jogo
     Mago get_magos_adversarios(short int num);
     Elfo get_elfos_adversarios(short int num);
     void inicia_jogo();
-    char retorna_opcao_valida();
 };
