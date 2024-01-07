@@ -110,6 +110,8 @@ void comeco_jogo::inicia_jogo()
             }
             //cria variavel que converte char em int
             int posicao_adversario = num_adversario - '0';
+            //anuncia o hp
+            std::cout << "o hp do goblin " << num_adversario << " e "  << goblins_adversarios[posicao_adversario].get_Hp();
             //ataca o adversario
             goblins_adversarios[posicao_adversario].muda_Hp(usuario.get_Ataque() - goblins_adversarios[posicao_adversario].get_Defesa(), false);
             std::cout << "Agora o Goblin : " << num_adversario << " tem o hp de " << goblins_adversarios[posicao_adversario].get_Hp() << std::endl;
@@ -130,6 +132,8 @@ void comeco_jogo::inicia_jogo()
             }
             //cria variavel que converte char em int
             int posicao_adversario = num_adversario - '0';
+            //anuncia o hp
+            std::cout << "o hp do elfo " << num_adversario << " e "  << elfos_adversarios[posicao_adversario].get_Hp();
             //ataca o adversario
             elfos_adversarios[posicao_adversario].muda_Hp(usuario.get_Ataque() - elfos_adversarios[posicao_adversario].get_Defesa(), false);
             std::cout << "Agora o Elfo : " << num_adversario << " tem o hp de " << to_string(elfos_adversarios[posicao_adversario].get_Hp()) << std::endl;
@@ -152,6 +156,8 @@ void comeco_jogo::inicia_jogo()
             }
             //cria variavel que converte char em int
             int posicao_adversario = num_adversario - '0';
+            //anuncia o hp
+            std::cout << "o hp do elfo " << num_adversario << " e "  << magos_adversarios[posicao_adversario].get_Hp();
             //ataca o adversario
             magos_adversarios[posicao_adversario].muda_Hp(usuario.get_Ataque() - magos_adversarios[posicao_adversario].get_Defesa(), false);
             std::cout << "Agora o Mago : " << num_adversario << " tem o hp de " << to_string(magos_adversarios[posicao_adversario].get_Hp()) << std::endl;
