@@ -209,7 +209,7 @@ void comeco_jogo::inicia_jogo()
     
     
 
-
+//verifica se o jogador ganhou ou perdeu
 bool comeco_jogo::verifica_se_o_jogador_venceu_todos_adversarios(char classe)
 {
     int count = 0;
