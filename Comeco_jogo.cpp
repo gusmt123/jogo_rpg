@@ -102,28 +102,39 @@ void comeco_jogo::inicia_jogo()
             {
                 
                 //fez com que o sistema so aceite respostas validas
-                while(num_adversario != '1' && num_adversario != '2'  && num_adversario != '3' && num_adversario != '4' && num_adversario != '5' || verifica_se_o_jogador_venceu_todos_adversarios(classe_atacada) == false)
-                {             
+                while(num_adversario != '1' && num_adversario != '2'  && num_adversario != '3' && num_adversario != '4' && num_adversario != '5')
+                {   
+    
                     //limpa o terminal
                     system("cls"); 
                     //o jogadorpode escolher qual adversario atacar
                     std::cout << "Existem 5 Goblins te atacando digite um numero de 1 a 5 para dizer qual deles voce quer atacar" << std::endl;
                     std::cin.get(num_adversario);
-                    if(num_adversario == '1' || num_adversario == '2'  || num_adversario == '3' || num_adversario == '4' || num_adversario == '5')
+                    if(num_adversario == '1' || num_adversario == '2'  || num_adversario == '3' || num_adversario == '4' || num_adversario == '5' )
                     {
                         //cria variavel que converte char em int
                         int posicao_adversario = num_adversario - '0';
                         //anuncia o hp
-                        std::cout << "o hp do goblin " << num_adversario << " e "  << goblins_adversarios[posicao_adversario].get_Hp();
+                        std::cout << "o hp do goblin " << num_adversario << " e "  << goblins_adversarios[posicao_adversario-1].get_Hp();
                         //ataca o adversario
-                        goblins_adversarios[posicao_adversario].muda_Hp(usuario.get_Ataque() - goblins_adversarios[posicao_adversario].get_Defesa(), false);
-                        std::cout << "Agora o Goblin : " << num_adversario << " tem o hp de " << goblins_adversarios[posicao_adversario].get_Hp() << std::endl;
+                        goblins_adversarios[posicao_adversario-1].muda_Hp(usuario.get_Ataque() - goblins_adversarios[posicao_adversario-1].get_Defesa(), false);
+                        std::cout << "Agora o Goblin : " << num_adversario << " tem o hp de " << goblins_adversarios[posicao_adversario-1].get_Hp() << std::endl;
+                        num_adversario = '0';
+                        if(verifica_se_o_jogador_venceu_todos_adversarios(classe_atacada) == true)
+                        {
+                            system("cls");
+                            std::cout << "voce ganhou o jogo" << std::endl;
+                            num_adversario = '9';
+                        }
+                        system("pause");   
                     }
-                    system("pause") ;                  
+                    
                 }
+                       
 
             }
-           
+
+            
         }
         else if(classe_atacada == '2')
         {
@@ -139,7 +150,7 @@ void comeco_jogo::inicia_jogo()
 
             }
             //cria variavel que converte char em int
-            int posicao_adversario = num_adversario - '0';
+            int posicao_adversario = num_adversario - '1';
             //anuncia o hp
             std::cout << "o hp do elfo " << num_adversario << " e "  << elfos_adversarios[posicao_adversario].get_Hp();
             //ataca o adversario
@@ -181,16 +192,25 @@ void comeco_jogo::inicia_jogo()
 }
 bool comeco_jogo::verifica_se_o_jogador_venceu_todos_adversarios(char classe)
 {
+    int count = 0;
     switch (classe)
     {
         case '1':
+            count = 0;
             for(int i = 0; i < 5;i++)
             {
-                if(goblins_adversarios[i].get_Hp() > 0)
+                if (goblins_adversarios[i].get_Hp() <= 0)
                 {
-                    return false;
+                    count++;
                 }
+            }
+            if(count >= 4)
+            {
                 return true;
+            }
+            else
+            {
+                return false;
             }
         break;
         case '2':
@@ -200,7 +220,10 @@ bool comeco_jogo::verifica_se_o_jogador_venceu_todos_adversarios(char classe)
                 {
                     return false;
                 }
-                return true;
+                else
+                {
+                    return true;
+                }
             }
         break;
         case '3':
@@ -210,7 +233,10 @@ bool comeco_jogo::verifica_se_o_jogador_venceu_todos_adversarios(char classe)
                 {
                     return false;
                 }
-                return true;
+                else
+                {
+                    return true;
+                }
             }
         break;
     }
