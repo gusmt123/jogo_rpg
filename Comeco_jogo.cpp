@@ -204,7 +204,7 @@ bool comeco_jogo::verifica_se_o_jogador_venceu_todos_adversarios(char classe)
                     count++;
                 }
             }
-            if(count >= 4)
+            if(count >= 5)
             {
                 return true;
             }
