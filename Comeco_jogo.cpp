@@ -57,19 +57,19 @@ comeco_jogo::comeco_jogo(Personagem jogador)
 Personagem comeco_jogo::get_usuario()
 {
     return usuario;
-}
+};
 Goblin comeco_jogo::get_goblins_adversarios(short int num)
 {
     return goblins_adversarios[num];
-}
+};
 Elfo comeco_jogo::get_elfos_adversarios(short int num)
 {
     return elfos_adversarios[num];
-}
+};
 Mago comeco_jogo::get_magos_adversarios(short int num)
 {
     return magos_adversarios[num];
-}
+};
 //inicia o jogo
 void comeco_jogo::inicia_jogo()
 {
@@ -142,21 +142,32 @@ void comeco_jogo::inicia_jogo()
             //fez com que o sistema so aceite respostas validas
             while(num_adversario != '1' && num_adversario != '2'  && num_adversario != '3' && num_adversario != '4' && num_adversario != '5' && num_adversario != '6' && num_adversario != '7' && num_adversario != '8')
             {
-            //limpa o terminal
-            system("cls");
-            //o jogadorpode escolher qual adversario atacar
-            std::cout << "Existem 8 Elfos te atacando digite um numero de 1 a 8 para dizer qual elfo voce quer atacar" << std::endl;
-            std::cin.get(num_adversario);
-
+                    //limpa o terminal
+                    system("cls"); 
+                    //o jogadorpode escolher qual adversario atacar
+                    std::cout << "Existem 8 elfos te atacando digite um numero de 1 a 8 para dizer qual deles voce quer atacar" << std::endl;
+                    std::cin.get(num_adversario);
+                    if(num_adversario == '1' || num_adversario == '2'  || num_adversario == '3' || num_adversario == '4' || num_adversario == '5' || num_adversario == '6' || num_adversario == '7' || num_adversario == '8' )
+                    {
+                        //cria variavel que converte char em int
+                        int posicao_adversario = num_adversario - '0';
+                        //anuncia o hp
+                        std::cout << "o hp do elfo " << num_adversario << " e "  << elfos_adversarios[posicao_adversario-1].get_Hp();
+                        //ataca o adversario
+                        elfos_adversarios[posicao_adversario-1].muda_Hp(usuario.get_Ataque() - elfos_adversarios[posicao_adversario-1].get_Defesa(), false);
+                        std::cout << "Agora o elfo : " << num_adversario << " tem o hp de " << elfos_adversarios[posicao_adversario-1].get_Hp() << std::endl;
+                        num_adversario = '0';
+                        if(verifica_se_o_jogador_venceu_todos_adversarios(classe_atacada) == true)
+                        {
+                            system("cls");
+                            std::cout << "voce ganhou o jogo" << std::endl;
+                            num_adversario = '9';
+                        }
+                        system("pause"); 
+                    }
+                
             }
-            //cria variavel que converte char em int
-            int posicao_adversario = num_adversario - '1';
-            //anuncia o hp
-            std::cout << "o hp do elfo " << num_adversario << " e "  << elfos_adversarios[posicao_adversario].get_Hp();
-            //ataca o adversario
-            elfos_adversarios[posicao_adversario].muda_Hp(usuario.get_Ataque() - elfos_adversarios[posicao_adversario].get_Defesa(), false);
-            std::cout << "Agora o Elfo : " << num_adversario << " tem o hp de " << to_string(elfos_adversarios[posicao_adversario].get_Hp()) << std::endl;
-            system("pause");
+            
         }
         else if(classe_atacada == '3')
         {
@@ -167,36 +178,44 @@ void comeco_jogo::inicia_jogo()
             //fez com que o sistema so aceite respostas validas
             while(num_adversario != '1' && num_adversario != '2'  && num_adversario != '3')
             {
-            //limpa o console
-            system("cls");  
-            //o jogadorpode escolher qual adversario atacar
-            std::cout << "Existem 3 Magos te atacando digite um numero de um a 3 para dizer mago voce esta atacando" << std::endl;
-            std::cin.get(num_adversario);
-            
-            }
-            //cria variavel que converte char em int
-            int posicao_adversario = num_adversario - '0';
-            //anuncia o hp
-            std::cout << "o hp do elfo " << num_adversario << " e "  << magos_adversarios[posicao_adversario].get_Hp();
-            //ataca o adversario
-            magos_adversarios[posicao_adversario].muda_Hp(usuario.get_Ataque() - magos_adversarios[posicao_adversario].get_Defesa(), false);
-            std::cout << "Agora o Mago : " << num_adversario << " tem o hp de " << to_string(magos_adversarios[posicao_adversario].get_Hp()) << std::endl;
-            system("pause");
+                    //limpa o terminal
+                    system("cls"); 
+                    //o jogadorpode escolher qual adversario atacar
+                    std::cout << "Existem 3 Magos te atacando digite um numero de 1 a 3 para dizer qual deles voce quer atacar" << std::endl;
+                    std::cin.get(num_adversario);
+                    if(num_adversario == '1' || num_adversario == '2'  || num_adversario == '3')
+                    {
+                        //cria variavel que converte char em int
+                        int posicao_adversario = num_adversario - '0';
+                        //anuncia o hp
+                        std::cout << "o hp do mago " << num_adversario << " e "  << magos_adversarios[posicao_adversario-1].get_Hp();
+                        //ataca o adversario
+                        magos_adversarios[posicao_adversario-1].muda_Hp(usuario.get_Ataque() - magos_adversarios[posicao_adversario-1].get_Defesa(), false);
+                        std::cout << "Agora o mago : " << num_adversario << " tem o hp de " << magos_adversarios[posicao_adversario-1].get_Hp() << std::endl;
+                        num_adversario = '0';
+                        if(verifica_se_o_jogador_venceu_todos_adversarios(classe_atacada) == true)
+                        {
+                            system("cls");
+                            std::cout << "voce ganhou o jogo" << std::endl;
+                            num_adversario = '9';
+                        }
+                        system("pause"); 
+                    }
+            }    
         }
-    }    
-
+    }
+};
 
     
     
 
-}
+
 bool comeco_jogo::verifica_se_o_jogador_venceu_todos_adversarios(char classe)
 {
     int count = 0;
     switch (classe)
     {
         case '1':
-            count = 0;
             for(int i = 0; i < 5;i++)
             {
                 if (goblins_adversarios[i].get_Hp() <= 0)
@@ -216,28 +235,39 @@ bool comeco_jogo::verifica_se_o_jogador_venceu_todos_adversarios(char classe)
         case '2':
             for(int i = 0; i < 8;i++)
             {
-                if(elfos_adversarios[i].get_Hp() > 0)
+                if (elfos_adversarios[i].get_Hp() <= 0)
                 {
-                    return false;
+                    count++;
                 }
-                else
+            }
+                if(count >= 8)
                 {
                     return true;
                 }
-            }
+                else
+                {
+                    return false;
+                }
+            
         break;
         case '3':
+
             for(int i = 0; i < 3;i++)
             {
-                if(magos_adversarios[i].get_Hp() > 0)
+                if (magos_adversarios[i].get_Hp() <= 0)
                 {
-                    return false;
+                    count++;
                 }
-                else
+            }
+                if(count >= 3)
                 {
                     return true;
                 }
-            }
+                else
+                {
+                    return false;
+                }
         break;
     }
+    
 };
